@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xoshnaw404 - فیلم و زنجیرە</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: NRT / Vazirmatn for Kurdish -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#0f1015',
+                        cardBg: '#181b22',
+                        accentRed: '#e50914',
+                        accentHover: '#b20710',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f1015;
+            color: #f3f4f6;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        /* Custom scrollbar for dark aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f1015;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #272a35;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e50914;
+        }
+        .hero-gradient {
+            background: linear-gradient(0deg, #0f1015 0%, rgba(15, 16, 21, 0.7) 50%, rgba(15, 16, 21, 0.3) 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-red-600 selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-[#0f1015]/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo & Brand Name -->
+                <div class="flex items-center gap-3">
+                    <a href="#" class="flex items-center gap-2 group">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-red-600 to-rose-500 flex items-center justify-center shadow-lg shadow-red-600/30 group-hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-play text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl sm:text-2xl font-extrabold tracking-wider bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+                            xoshnaw<span class="text-red-600">404</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-white font-medium hover:text-red-500 transition-colors">سەرەتا</a>
+                    <a href="#movies" class="text-gray-300 font-medium hover:text-red-500 transition-colors">فیلمەکان</a>
+                    <a href="#series" class="text-gray-300 font-medium hover:text-red-500 transition-colors">زنجیرەکان</a>
+                    <a href="#trending" class="text-gray-300 font-medium hover:text-red-500 transition-colors">ترێند</a>
+                    <a href="#about" class="text-gray-300 font-medium hover:text-red-500 transition-colors">دەربارە</a>
+                </nav>
+
+                <!-- Search & Profile Actions -->
+                <div class="flex items-center gap-4">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" placeholder="گەڕان بەدوای فیلم یان زنجیرە..." class="bg-[#181b22] text-sm text-gray-200 placeholder-gray-500 px-4 py-2 pr-10 rounded-full border border-gray-800 focus:outline-none focus:border-red-600 w-48 lg:w-64 transition-all">
+                        <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-3 text-gray-500 text-sm"></i>
+                    </div>
+                    <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#181b22] border-b border-gray-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#home" class="block px-3 py-2 rounded-lg text-white hover:bg-gray-800">سەرەتا</a>
+            <a href="#movies" class="block px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800">فیلمەکان</a>
+            <a href="#series" class="block px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800">زنجیرەکان</a>
+            <a href="#trending" class="block px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800">ترێند</a>
+            <a href="#about" class="block px-3 py-2 rounded-lg text-gray-300 hover:bg-gray-800">دەربارە</a>
+            <div class="pt-2">
+                <input type="text" placeholder="گەڕان..." class="w-full bg-[#0f1015] text-sm text-gray-200 px-4 py-2 rounded-lg border border-gray-800 focus:outline-none focus:border-red-600">
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="home" class="relative h-[70vh] sm:h-[80vh] w-full flex items-end">
+            <!-- Hero Background Backdrop -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1920&auto=format&fit=crop" onerror="this.src='https://placehold.co/1920x1080/111/fff?text=xoshnaw404'" alt="Hero Backdrop" class="w-full h-full object-cover">
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 w-full">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-red-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">فیلمی سەرەکی</span>
+                        <div class="flex items-center text-amber-400 text-sm font-semibold gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <span>9.2 / 10</span>
+                        </div>
+                        <span class="text-gray-400 text-sm">2026</span>
+                        <span class="border border-gray-600 text-gray-300 text-xs px-2 py-0.5 rounded">PG-13</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4 drop-shadow-md">
+                        گەشتە مەزنەکە: کۆتا هیوا
+                    </h1>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 line-clamp-3">
+                        لە داهاتوویەکی دووردا، کاتێک زەوی لە لێواری لەناوچووندایە، کۆمەڵێک زانا و گەشتیاری بۆشایی ئاسمان دەست بە گەشتێکی مەزن دەکەن بۆ دۆزەرەوەی هەسارەیەکی نوێ بۆ مانەوەی مرۆڤایەتی لە ژێر چاودێری پلاتفۆرمی xoshnaw404.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4">
+                        <button onclick="openPlayer('گەشتە مەزنەکە: کۆتا هیوا')" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 sm:px-8 py-3 rounded-xl flex items-center gap-3 transition-all shadow-lg shadow-red-600/40 hover:scale-105 active:scale-95">
+                            <i class="fa-solid fa-play text-lg"></i>
+                            <span>سەیرکردن ئێستا</span>
+                        </button>
+                        <button onclick="showInfo('گەشتە مەزنەکە: کۆتا هیوا')" class="bg-gray-800/80 hover:bg-gray-700 text-gray-200 font-medium px-6 py-3 rounded-xl flex items-center gap-2 backdrop-blur-sm transition-all border border-gray-700">
+                            <i class="fa-solid fa-info-circle text-lg"></i>
+                            <span>زانیاری زیاتر</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Tabs -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+            <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-6 bg-red-600 rounded-full"></div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white" id="sectionTitle">نوێترین فیلم و زنجیرەکان</h2>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                    <button onclick="filterContent('all')" class="category-btn px-4 py-1.5 rounded-lg bg-red-600 text-white font-medium transition-all">هەموو</button>
+                    <button onclick="filterContent('movie')" class="category-btn px-4 py-1.5 rounded-lg bg-[#181b22] text-gray-300 hover:text-white font-medium transition-all">فیلم</button>
+                    <button onclick="filterContent('series')" class="category-btn px-4 py-1.5 rounded-lg bg-[#181b22] text-gray-300 hover:text-white font-medium transition-all">زنجیرە</button>
+                </div>
+            </div>
+
+            <!-- Media Grid -->
+            <div id="mediaGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 mt-8">
+                <!-- Cards will be populated dynamically -->
+            </div>
+        </div>
+
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20">
+            <div class="bg-[#181b22] border border-gray-800 rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="absolute -left-10 -bottom-10 w-48 h-48 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="max-w-3xl">
+                    <span class="text-red-500 font-bold text-sm tracking-widest uppercase">دەربارەی پلاتفۆرم</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2 mb-4">xoshnaw404 باشترین شوێن بۆ بینینی فیلم و زنجیرە</h2>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        پلاتفۆرمی xoshnaw404 پەرەپێدراوە بۆ پێشکەشکردنی ناوازەترین فیلم و زنجیرە جیهانییەکان بە ژێرنووسی کوردی و بە کوزڵترین کوالێتی. ئامانجمان دروستکردنی ئەزموونێکی چێژبەخشە بۆ بینەرانی کورد بە دیزاینێکی مۆدێرن و خێرا.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
+                        <div class="bg-[#0f1015] p-4 rounded-xl border border-gray-800">
+                            <div class="text-2xl sm:text-3xl font-extrabold text-red-500 mb-1">+1,500</div>
+                            <div class="text-gray-400 text-xs sm:text-sm">فیلم و زنجیرە</div>
+                        </div>
+                        <div class="bg-[#0f1015] p-4 rounded-xl border border-gray-800">
+                            <div class="text-2xl sm:text-3xl font-extrabold text-red-500 mb-1">1080p / 4K</div>
+                            <div class="text-gray-400 text-xs sm:text-sm">بەرزترین کوالێتی</div>
+                        </div>
+                        <div class="bg-[#0f1015] p-4 rounded-xl border border-gray-800 col-span-2 sm:col-span-1">
+                            <div class="text-2xl sm:text-3xl font-extrabold text-red-500 mb-1">100%</div>
+                            <div class="text-gray-400 text-xs sm:text-sm">ژێرنووسی کوردی</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#181b22] border-t border-gray-800 text-gray-400 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white font-bold">
+                    <i class="fa-solid fa-play text-xs"></i>
+                </div>
+                <span class="text-lg font-bold text-white">xoshnaw404</span>
+            </div>
+            <p class="text-sm text-center">هەموو مافێک پارێزراوە © 2026 xoshnaw404. پەرەپێدراوە بۆ کاتبەسەربردن.</p>
+            <div class="flex items-center gap-4 text-lg">
+                <a href="#" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Player / Details Modal -->
+    <div id="mediaModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-[#181b22] border border-gray-800 rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl relative animate-scaleIn">
+            <button onclick="closeModal()" class="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-red-600 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="aspect-video bg-black flex items-center justify-center relative">
+                <img id="modalPoster" src="" alt="Poster" class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center text-white text-2xl shadow-xl shadow-red-600/50 cursor-pointer hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-play pl-1"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 id="modalTitle" class="text-2xl font-bold text-white">ناونیشانی فیلم</h3>
+                    <span id="modalRating" class="bg-amber-400/10 text-amber-400 text-sm font-semibold px-3 py-1 rounded-full border border-amber-400/20">⭐ 8.5</span>
+                </div>
+                <p id="modalDesc" class="text-gray-300 text-sm leading-relaxed mb-6">کورتەی فیلم یان زنجیرەکە لێرە دەردەکەوێت لەگەڵ وردەکاری تەواو...</p>
+                <div class="flex items-center justify-end gap-3">
+                    <button onclick="closeModal()" class="bg-gray-800 hover:bg-gray-700 text-gray-300 px-5 py-2.5 rounded-xl font-medium transition-all">داخستن</button>
+                    <button onclick="playStream()" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-xl font-semibold transition-all shadow-lg shadow-red-600/30">دەستپێکردنی پەخش</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Message Box -->
+    <div id="msgBox" class="fixed bottom-6 left-6 z-50 bg-[#181b22] border border-red-600/50 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-red-500 text-xl"></i>
+        <span id="msgText" class="text-sm font-medium">پەیام...</span>
+    </div>
+
+    <script>
+        // Sample Media Database inspired by KurdCinema layout
+        const mediaData = [
+            { id: 1, title: "شۆفێری خێرا", type: "movie", rating: "8.9", year: "2025", quality: "1080p WEB-DL", img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=600&auto=format&fit=crop", desc: "چیرۆکی شۆفێرێکی بەتوانا کە لە کاتی شەودا کاری گواستنەوە بۆ چەتەکان دەکات تا ڕووبەڕووی مەترسیەکی گەورە دەبێتەوە." },
+            { id: 2, title: "تاریکی شار", type: "series", rating: "9.1", year: "2026", quality: "4K UHD", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop", desc: "زنجیرەیەکی پڕ لە نهێنی و تاوان لە کۆڵانە تاریکەکانی شارێکی گەورەدا ڕوودەدات." },
+            { id: 3, title: "سەفەر بۆ ئاسمان", type: "movie", rating: "8.4", year: "2025", quality: "1080p BluRay", img: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=600&auto=format&fit=crop", desc: "گەشتێکی دوورودرێژ بەناو بۆشایی ئاسماندا بۆ دۆزینەوەی سەرچاوەی وزەیەکی نوێ." },
+            { id: 4, title: "نێچیرەوان", type: "series", rating: "8.7", year: "2024", quality: "1080p WEB-DL", img: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=600&auto=format&fit=crop", desc: "زنجیرەیەکی اکشن و درامی کە باسی ژیانی ڕاوچییەک دەکات لە دارستانە دوورەکاندا." },
+            { id: 5, title: "نهێنییەکان", type: "movie", rating: "8.0", year: "2025", quality: "1080p WEB-DL", img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop", desc: "فیلمێکی ئاڵۆز پڕ لە فێڵ و مەتەڵی دەروونی کە سەرنجی بینەر ڕادەکێشێت." },
+            { id: 6, title: "شارستانییەتی ونبوو", type: "movie", rating: "9.3", year: "2026", quality: "4K UHD", img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=600&auto=format&fit=crop", desc: "گەڕان بەدوای شارستانییەکی کۆندا لە قووڵایی ئەفریقادا." },
+            { id: 7, title: "هێڵی سور", type: "series", rating: "8.5", year: "2025", quality: "1080p WEB-DL", img: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=600&auto=format&fit=crop", desc: "زنجیرەیەکی سیاسی و پڕ لە رووداوی چاوەڕواننەکراو لە جیهانی دیپلۆماسیدا." },
+            { id: 8, title: "گیتار و ژیان", type: "movie", rating: "8.2", year: "2024", quality: "1080p BluRay", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600&auto=format&fit=crop", desc: "چیرۆکی مۆسیقاژەنێکی گەنج کە هەوڵ دەدات سەرکەوتن بەدەستبهێنێت." },
+            { id: 9, title: "شۆڕشی زیرەکی", type: "movie", rating: "8.8", year: "2026", quality: "4K UHD", img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop", desc: "کاتێک ئامێرە زیرەکەکان دەبنە مەترسی بۆ سەر تەواوی مرۆڤایەتی." },
+            { id: 10, title: "سەربازی ون", type: "series", rating: "8.6", year: "2025", quality: "1080p WEB-DL", img: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=600&auto=format&fit=crop", desc: "زنجیرەیەکی سەربازی و پڕ لە حەماسەت لە ناو دڵی شەڕدا." }
+        ];
+
+        // Render Media Cards
+        function renderGrid(items) {
+            const grid = document.getElementById('mediaGrid');
+            grid.innerHTML = '';
+            
+            if(items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">هیچ ئەنجامێک نەدۆزرایەوە لە xoshnaw404.</div>`;
+                return;
+            }
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'group bg-[#181b22] border border-gray-800 rounded-xl overflow-hidden hover:border-red-600/60 transition-all duration-300 flex flex-col shadow-md hover:shadow-red-600/10 cursor-pointer';
+                card.onclick = () => openModal(item);
+                
+                card.innerHTML = `
+                    <div class="aspect-[2/3] relative overflow-hidden bg-gray-900">
+                        <img src="${item.img}" onerror="this.src='https://placehold.co/400x600/111/fff?text=xoshnaw404'" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#181b22] via-transparent opacity-80"></div>
+                        <span class="absolute top-3 right-3 bg-black/70 backdrop-blur-md text-amber-400 text-xs font-bold px-2.5 py-1 rounded-lg border border-amber-400/20 flex items-center gap-1">
+                            <i class="fa-solid fa-star text-xs"></i> ${item.rating}
+                        </span>
+                        <span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                            ${item.quality}
+                        </span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gray-400 mb-1">
+                                <span>${item.year}</span>
+                                <span class="uppercase">${item.type === 'movie' ? 'فیلم' : 'زنجیرە'}</span>
+                            </div>
+                            <h3 class="text-base font-bold text-white group-hover:text-red-500 transition-colors line-clamp-1">${item.title}</h3>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between">
+                            <span class="text-xs text-red-500 font-semibold flex items-center gap-1 group-hover:underline">
+                                <i class="fa-solid fa-play text-[10px]"></i> سەیرکردن
+                            </span>
+                            <span class="text-xs text-gray-500">ژێرنووسی کوردی</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Functionality
+        function filterContent(type) {
+            // Update active button state
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-red-650', 'bg-red-600', 'text-white');
+                btn.classList.add('bg-[#181b22]', 'text-gray-300');
+            });
+            event.target.classList.remove('bg-[#181b22]', 'text-gray-300');
+            event.target.classList.add('bg-red-600', 'text-white');
+
+            const titleEl = document.getElementById('sectionTitle');
+            if(type === 'all') {
+                titleEl.innerText = "نوێترین فیلم و زنجیرەکان";
+                renderGrid(mediaData);
+            } else if(type === 'movie') {
+                titleEl.innerText = "فیلمە سینەماییەکان";
+                renderGrid(mediaData.filter(i => i.type === 'movie'));
+            } else if(type === 'series') {
+                titleEl.innerText = "زنجیرە تەلەفزیۆنییەکان";
+                renderGrid(mediaData.filter(i => i.type === 'series'));
+            }
+        }
+
+        // Search Functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const filtered = mediaData.filter(i => i.title.toLowerCase().includes(query) || i.desc.toLowerCase().includes(query));
+            renderGrid(filtered);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal Controls
+        function openModal(item) {
+            const modal = document.getElementById('mediaModal');
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalRating').innerText = `⭐ ${item.rating} / 10`;
+            document.getElementById('modalDesc').innerText = item.desc;
+            document.getElementById('modalPoster').src = item.img;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function playStream() {
+            closeModal();
+            showNotification("پەخش دەستپێکرد لە پلاتفۆرمی xoshnaw404!");
+        }
+
+        function showInfo(title) {
+            const found = mediaData.find(i => i.title === title) || mediaData[0];
+            openModal(found);
+        }
+
+        // Notification Helper
+        function showNotification(text) {
+            const box = document.getElementById('msgBox');
+            document.getElementById('msgText').innerText = text;
+            box.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                box.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Initial Render
+        window.onload = function() {
+            renderGrid(mediaData);
+        };
+    </script>
+</body>
+</html>
